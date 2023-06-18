@@ -10,6 +10,7 @@
 Controller::Controller(int numberOfBridgesParam) {
     this->numberOfBridges = numberOfBridgesParam;
     createBridges();
+    createDistancesMatrix();
 }
 
 void Controller::createBridges() {
@@ -60,5 +61,4 @@ void Controller::createDistancesMatrix() {
             std::cout << distancesMatrix[i][j] << std::endl;
         }
     }
-
 }
