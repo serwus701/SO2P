@@ -18,6 +18,10 @@ class Controller {
     std::vector<Bridge *> bridges;
     std::vector<Vehicle *> vehicles;
 
+    int** distancesMatrix;
+
+    void createDistancesMatrix();
+
     Controller(int numberOfBridgesParam);
 
     void createBridges();

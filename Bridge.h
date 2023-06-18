@@ -4,9 +4,12 @@
 
 #include <iostream>
 #include <vector>
+#include <mutex>
 
 #ifndef SO2_P_BRIDGE_H
 #define SO2_P_BRIDGE_H
+
+#include "Vehicle.h"
 
 //posiuada różną ilość pasów wjazdowych i wyjazdowych
 // każdy pas ma atrybut długości czyli tablicew mutexów
@@ -20,12 +23,17 @@ private:
     int linesLeadingOutside;
     std::vector<int> queueLeadingInside{0};
     std::vector<int> queueLeadingOutside{0};
+    std::mutex** mutexLinesArray;
+
+    void closeBridge();
+    void openBridge();
 public:
     Bridge();
     ~Bridge();
-    void closeBridge();
-    void openBridge();
     void operate();
+
+    void pushVehicle(Vehicle);
+    int getQueueLen();
 };
 
 

@@ -22,6 +22,11 @@ Bridge::Bridge() {
             this->linesLeadingOutside = random->getRandomLanesNum();
         }
     }
+    int rows = this->linesLeadingInside + this->linesLeadingOutside;
+    this->mutexLinesArray = new std::mutex*[rows];
+    for(int i = 0; i < rows; i++){
+        mutexLinesArray[i] = new std::mutex[this->bridgeLength];
+    }
 }
 
 Bridge::~Bridge() {}
@@ -40,5 +45,8 @@ void Bridge::openBridge() {
 //  - Pierszenstwo pojazdow uprzywilejowanych
 //  - Zarzadzanie kolejkom - wysylanie aut w zaleznosci od liczby linii
 void Bridge::operate() {
+    //Wpychanie z kolejki na linie
+    //Szansa na podniesienie mostu
+    //
     
 }
