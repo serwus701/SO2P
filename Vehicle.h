@@ -6,14 +6,15 @@
 #define SO2_P_VEHICLE_H
 
 
+
 class Vehicle {
 private:
     bool isPrivileged;
     bool targetToCity;
+    int length;
 
 public:
     Vehicle();
-
 };
 
 

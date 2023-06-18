@@ -12,6 +12,7 @@ public:
 
     int getRandomBridgeLen();
     int getRandomLanesNum();
+    int getRandomLength();
 
     int getTimeControllerToSleep();
 };

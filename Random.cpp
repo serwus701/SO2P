@@ -31,3 +31,18 @@ int Random::getTimeControllerToSleep() {
 
     return rand() % 25 + 5;
 }
+
+int Random::getRandomLength(){
+    srand(time(NULL));
+    int chance = rand() % 3;
+    switch (chance) {
+        case 0:
+            return 1;
+        case 1:
+            return 2;
+        case 3:
+            return 4;
+        default:
+            return 1;
+    }
+}

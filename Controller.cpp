@@ -10,15 +10,13 @@
 
 Controller::Controller(int numberOfBridgesParam) {
     this->numberOfBridges = numberOfBridgesParam;
+    createBridges();
 }
 
 void Controller::createBridges() {
     auto random = new Random();
     for(int i = 0; i < this->numberOfBridges; i++){
-        this->bridges.push_back(new Bridge(
-                random->getRandomBridgeLen(),
-                random->getRandomLanesNum(),
-                random->getRandomLanesNum()));
+        this->bridges.push_back(new Bridge());
     }
 }
 
@@ -28,7 +26,13 @@ void Controller::spawnVehicle() {
 
 void Controller::operate(){
     auto random = new Random();
-    // Sleep(random.getTimeControllerToSleep);
+    while(true){
+        for (auto bridge: this->bridges) {
+            bridge->pushVehicle();
+        }
+        Sleep(random.getTimeControllerToSleep);
+
+    }
     //Co x sekund tworz samochod
     //Dysponowanie samochodami miedzy mostami
     //  - m.in wybieranie mostu zastepczego na przejazd

@@ -3,12 +3,25 @@
 //
 
 #include "Bridge.h"
+#include "Random.h"
 
-Bridge::Bridge(int bridgeLengthParam, int linesLeadingInsideParam, int linesLeadingOutsideParam){
+Bridge::Bridge() {
+    Random * random = new Random();
     this->isOpen = false;
-    this->bridgeLength = bridgeLengthParam;
-    this->linesLeadingInside = linesLeadingInsideParam;
-    this->linesLeadingOutside = linesLeadingOutsideParam;
+    this->bridgeLength = random->getRandomLength();
+    if(random->getEffectBasedOnChance(80)){
+        int value = random->getRandomLanesNum();
+        this->linesLeadingInside = value;
+        this->linesLeadingOutside = value;
+    } else {
+        if(random->getEffectBasedOnChance(50)) {
+            this->linesLeadingInside = random->getRandomLanesNum();
+            this->linesLeadingOutside = 0;
+        } else {
+            this->linesLeadingInside = 0;
+            this->linesLeadingOutside = random->getRandomLanesNum();
+        }
+    }
 }
 
 Bridge::~Bridge() {}
@@ -21,9 +34,11 @@ void Bridge::openBridge() {
     this->isOpen = true;
 }
 
+//Zapetlone operacje pojedynczego semafora/policjanta, ale obie strony musza byc zawarte w tym watku.
+//Otwieranie i zamykanie sie
+//Dysponowanie ruchem
+//  - Pierszenstwo pojazdow uprzywilejowanych
+//  - Zarzadzanie kolejkom - wysylanie aut w zaleznosci od liczby linii
 void Bridge::operate() {
-    //Otwieranie i zamykanie sie
-    //Dysponowanie ruchem
-    //  - Pierszenstwo pojazdow uprzywilejowanych
-    //  - Zarzadzanie kolejkom - wysylanie aut w zaleznosci od liczby linii
+    
 }

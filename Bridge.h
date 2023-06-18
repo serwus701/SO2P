@@ -8,6 +8,9 @@
 #ifndef SO2_P_BRIDGE_H
 #define SO2_P_BRIDGE_H
 
+//posiuada różną ilość pasów wjazdowych i wyjazdowych
+// każdy pas ma atrybut długości czyli tablicew mutexów
+//każda strona ma semafor/policjanta kontrulującego wjazdy na most
 
 class Bridge {
 private:
@@ -18,7 +21,7 @@ private:
     std::vector<int> queueLeadingInside{0};
     std::vector<int> queueLeadingOutside{0};
 public:
-    Bridge(int bridgeLengthParam, int linesLeadingInsideParam, int linesLeadingOutsideParam);
+    Bridge();
     ~Bridge();
     void closeBridge();
     void openBridge();
