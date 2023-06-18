@@ -48,5 +48,13 @@ void Bridge::operate() {
     //Wpychanie z kolejki na linie
     //Szansa na podniesienie mostu
     //
-    
+
+}
+
+void Bridge::pushVehicle(Vehicle) {
+
+}
+
+int Bridge::getQueueLen() {
+    return 3;
 }

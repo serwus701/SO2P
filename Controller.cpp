@@ -15,7 +15,7 @@ Controller::Controller(int numberOfBridgesParam) {
 
 void Controller::createBridges() {
     auto random = new Random();
-    for(int i = 0; i < this->numberOfBridges; i++){
+    for (int i = 0; i < this->numberOfBridges; i++) {
         this->bridges.push_back(new Bridge());
     }
 }
@@ -24,29 +24,26 @@ void Controller::spawnVehicle() {
     this->vehicles.push_back(new Vehicle());
 }
 
-void Controller::operate(){
+void Controller::operate() {
     auto random = new Random();
-    while(true){
-        int avgLen = 0;
-        for (auto bridge: this->bridges) {
-            avgLen += bridge->getQueueLen();
-        }
-        avgLen /= this->bridges.size();
+    while (true) {
 
-        for (auto bridge: this->bridges) {
+        for (int i = 0; i < numberOfBridges; ++i) {
             auto newVehicle = new Vehicle();
+            auto bridge = bridges[i];
+            int betterBridgePos = findBetterBridge(bridge->getQueueLen(), i);
             vehicles.push_back(newVehicle);
-            bridge->pushVehicle(*newVehicle);
+            if (betterBridgePos == -1)
+                bridge->pushVehicle(*newVehicle);
+            else
+                bridges[i]->pushVehicle(*newVehicle);
         }
         Sleep(random->getTimeControllerToSleep());
     }
-    //Co x sekund tworz samochod
-    //Dysponowanie samochodami miedzy mostami
-    //  - m.in wybieranie mostu zastepczego na przejazd
 }
 
 void Controller::createDistancesMatrix() {
-    this->distancesMatrix = new int*[numberOfBridges];
+    this->distancesMatrix = new int *[numberOfBridges];
     for (int i = 0; i < numberOfBridges; i++) {
         distancesMatrix[i] = new int[numberOfBridges];
     }
@@ -56,9 +53,44 @@ void Controller::createDistancesMatrix() {
             distancesMatrix[i][j] = int(sqrt(2 * pow(abs(i - j), 2)));
         }
     }
+}
+
+void Controller::printDistancesMatrix() {
     for (int i = 0; i < numberOfBridges; ++i) {
         for (int j = 0; j < numberOfBridges; ++j) {
-            std::cout << distancesMatrix[i][j] << std::endl;
+            std::cout << distancesMatrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+int Controller::findBetterBridge(int currBridgeCapacity, int currBridgePos) {
+    for (int i = 0; i < numberOfBridges; ++i) {
+        for (int j = 1; j < numberOfBridges / 2; ++j) {
+            int nextBridgeCapacity =
+                    this->bridges[stayInArrayBound(currBridgePos + j)]->getQueueLen();
+            int prevBridgeCapacity =
+                    this->bridges[stayInArrayBound(currBridgePos - j)]->getQueueLen();
+
+            if ((currBridgeCapacity - nextBridgeCapacity) > distancesMatrix[currBridgePos][currBridgePos + j]) {
+                return (currBridgePos + j);
+            }
+
+            if ((currBridgeCapacity - prevBridgeCapacity) > distancesMatrix[currBridgePos][currBridgePos - j]) {
+                return (currBridgePos - j);
+            }
         }
     }
+
+    return -1;
+}
+
+int Controller::stayInArrayBound(int position) const {
+    while (position > numberOfBridges - 1)
+        position -= numberOfBridges;
+
+    while (position < 0)
+        position += numberOfBridges;
+
+    return position;
 }

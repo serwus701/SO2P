@@ -1,8 +1,8 @@
 #include <iostream>
+#include "Controller.h"
 
 int main() {
-    std::cout << "Initial commit. Might not work." << std::endl;
-    return 0;
+    std::cout << "LESSGOOO" << std::endl;
 }
 
 //male i duże auta

@@ -14,6 +14,7 @@
 //ma macież czasów przejazdów i dyusponuje auto do innego mostuy jak most jest zapchanyt
 
 class Controller {
+private:
     int numberOfBridges;
     std::vector<Bridge *> bridges;
     std::vector<Vehicle *> vehicles;
@@ -22,13 +23,21 @@ class Controller {
 
     void createDistancesMatrix();
 
-    Controller(int numberOfBridgesParam);
 
     void createBridges();
+
+    [[nodiscard]] int stayInArrayBound(int) const;
+public:
+    int findBetterBridge(int, int);
+
+    explicit Controller(int);
+
 
     void spawnVehicle();
 
     void operate();
+
+    void printDistancesMatrix();
 };
 
 
