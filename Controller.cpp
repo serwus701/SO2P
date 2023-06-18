@@ -29,14 +29,20 @@ void Controller::operate() {
     while (true) {
 
         for (int i = 0; i < numberOfBridges; ++i) {
-            auto newVehicle = new Vehicle();
+            auto newVehicle1 = new Vehicle();
+            auto newVehicle2 = new Vehicle();
             auto bridge = bridges[i];
             int betterBridgePos = findBetterBridge(bridge->getQueueLen(), i);
-            vehicles.push_back(newVehicle);
-            if (betterBridgePos == -1)
-                bridge->pushVehicle(*newVehicle);
-            else
-                bridges[i]->pushVehicle(*newVehicle);
+            vehicles.push_back(newVehicle1);
+            vehicles.push_back(newVehicle2);
+            if (betterBridgePos == -1){
+                bridge->pushVehicle(*newVehicle1);
+                bridge->pushVehicle(*newVehicle2);
+            }
+            else{
+                bridges[i]->pushVehicle(*newVehicle1);
+                bridges[i]->pushVehicle(*newVehicle2);
+            }
         }
         Sleep(random->getTimeControllerToSleep());
     }

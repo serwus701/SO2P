@@ -29,7 +29,7 @@ int Random::getRandomLanesNum() {
 int Random::getTimeControllerToSleep() {
     srand(time(NULL));
 
-    return rand() % 25 + 5;
+    return (rand() % 25 + 5) * 1000;
 }
 
 int Random::getRandomLength(){
