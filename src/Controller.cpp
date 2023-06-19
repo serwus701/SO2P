@@ -26,17 +26,47 @@ void Controller::operate() {
             auto newVehicle2 = new Vehicle(this->newVehicleID);
             this->newVehicleID++;
             auto bridge = bridges[i];
-            int betterBridgePos = findBetterBridge(bridge->getQueueLen(), i);
+
             vehicles.push_back(newVehicle1);
             vehicles.push_back(newVehicle2);
-            if (betterBridgePos == -1){
+
+            int betterBridgePos1;
+            bool isTargetToCity1 = newVehicle1->getTargetToCity();
+
+            if (isTargetToCity1)
+                betterBridgePos1 =
+                        findBetterBridge(bridge->getInQueueLen(), i, isTargetToCity1);
+            else
+                betterBridgePos1 =
+                        findBetterBridge(bridge->getOutQueueLen(), i, isTargetToCity1);
+
+
+            int betterBridgePos2;
+            bool isTargetToCity2 = newVehicle1->getTargetToCity();
+
+            if (isTargetToCity2)
+                betterBridgePos2 =
+                        findBetterBridge(bridge->getInQueueLen(), i, isTargetToCity2);
+            else
+                betterBridgePos2 =
+                        findBetterBridge(bridge->getOutQueueLen(), i, isTargetToCity2);
+
+
+
+            if (betterBridgePos1 == -1){
                 bridge->pushVehicle(*newVehicle1);
-                bridge->pushVehicle(*newVehicle2);
             }
             else{
                 bridges[i]->pushVehicle(*newVehicle1);
+            }
+
+            if (betterBridgePos2 == -1){
+                bridge->pushVehicle(*newVehicle2);
+            }
+            else{
                 bridges[i]->pushVehicle(*newVehicle2);
             }
+
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(random->getTimeControllerToSleep()));
     }

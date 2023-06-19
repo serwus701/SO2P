@@ -30,7 +30,7 @@ private:
     void createBridges();
     [[nodiscard]] int stayInArrayBound(int) const;
 public:
-    int findBetterBridge(int, int);
+    int findBetterBridge(int, int, bool);
     explicit Controller(int);
     void operate();
     void printDistancesMatrix();
