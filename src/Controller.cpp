@@ -64,13 +64,22 @@ void Controller::printDistancesMatrix() {
     }
 }
 
-int Controller::findBetterBridge(int currBridgeCapacity, int currBridgePos) {
+int Controller::findBetterBridge(int currBridgeCapacity, int currBridgePos, bool isGoingIn) {
     for (int i = 0; i < numberOfBridges; ++i) {
         for (int j = 1; j < numberOfBridges / 2; ++j) {
-            int nextBridgeCapacity =
-                    this->bridges[stayInArrayBound(currBridgePos + j)]->getQueueLen();
-            int prevBridgeCapacity =
-                    this->bridges[stayInArrayBound(currBridgePos - j)]->getQueueLen();
+            int nextBridgeCapacity;
+            int prevBridgeCapacity;
+            if(isGoingIn){
+                nextBridgeCapacity =
+                        this->bridges[stayInArrayBound(currBridgePos + j)]->getInQueueLen();
+                prevBridgeCapacity =
+                        this->bridges[stayInArrayBound(currBridgePos - j)]->getInQueueLen();
+            } else{
+                nextBridgeCapacity =
+                        this->bridges[stayInArrayBound(currBridgePos + j)]->getOutQueueLen();
+                prevBridgeCapacity =
+                        this->bridges[stayInArrayBound(currBridgePos - j)]->getOutQueueLen();
+            }
 
             if ((currBridgeCapacity - nextBridgeCapacity) > distancesMatrix[currBridgePos][currBridgePos + j]) {
                 return (currBridgePos + j);

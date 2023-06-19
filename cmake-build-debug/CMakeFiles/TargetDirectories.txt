@@ -1,3 +1,0 @@
-/home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/SO2_P.dir
-/home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/rebuild_cache.dir

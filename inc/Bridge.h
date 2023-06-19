@@ -37,7 +37,8 @@ public:
     void operate();
 
     void pushVehicle(Vehicle vehicle);
-    int getQueueLen();
+    int getOutQueueLen();
+    int getInQueueLen();
     std::vector<Vehicle> getQueueInside() {
         return this->queueLeadingInside;
     }

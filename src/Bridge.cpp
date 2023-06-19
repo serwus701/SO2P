@@ -161,7 +161,10 @@ void Bridge::pushVehicle(Vehicle vehicle) {
         }
     }
 }
+int Bridge::getInQueueLen() {
+    return queueLeadingInside.size();
+}
 
-int Bridge::getQueueLen() {
-    return 3;
+int Bridge::getOutQueueLen() {
+    return queueLeadingOutside.size();
 }
