@@ -773,8 +773,16 @@ CMakeFiles/SO2_P.dir/main.cpp.o: /home/advinek22/Desktop/SO2-Projekt-2/SO2P/main
   /usr/include/c++/10/bits/std_mutex.h \
   /usr/include/c++/10/bits/unique_lock.h \
   /home/advinek22/Desktop/SO2-Projekt-2/SO2P/Random.h \
-  /home/advinek22/Desktop/SO2-Projekt-2/SO2P/Vehicle.h
+  /home/advinek22/Desktop/SO2-Projekt-2/SO2P/Vehicle.h \
+  /usr/include/curses.h \
+  /usr/include/ncurses_dll.h \
+  /usr/include/unctrl.h \
+  /usr/include/curses.h
 
+
+/usr/include/unctrl.h:
+
+/usr/include/ncurses_dll.h:
 
 /home/advinek22/Desktop/SO2-Projekt-2/SO2P/Vehicle.cpp:
 
@@ -1221,6 +1229,8 @@ CMakeFiles/SO2_P.dir/main.cpp.o: /home/advinek22/Desktop/SO2-Projekt-2/SO2P/main
 /usr/include/c++/10/ostream:
 
 /usr/include/c++/10/system_error:
+
+/usr/include/curses.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 

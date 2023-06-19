@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/SO2_P.dir/main.cpp.o CMakeFiles/SO2_P.dir/Bridge.cpp.o CMakeFiles/SO2_P.dir/Vehicle.cpp.o CMakeFiles/SO2_P.dir/Controller.cpp.o CMakeFiles/SO2_P.dir/Random.cpp.o -o SO2_P  -pthread 
+/usr/bin/c++ -g CMakeFiles/SO2_P.dir/main.cpp.o CMakeFiles/SO2_P.dir/Bridge.cpp.o CMakeFiles/SO2_P.dir/Vehicle.cpp.o CMakeFiles/SO2_P.dir/Controller.cpp.o CMakeFiles/SO2_P.dir/Random.cpp.o -o SO2_P  -lcurses /usr/lib/x86_64-linux-gnu/libform.so -pthread 

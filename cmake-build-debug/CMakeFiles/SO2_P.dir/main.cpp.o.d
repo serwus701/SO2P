@@ -198,4 +198,6 @@ CMakeFiles/SO2_P.dir/main.cpp.o: \
  /usr/include/c++/10/mutex /usr/include/c++/10/bits/std_mutex.h \
  /usr/include/c++/10/bits/unique_lock.h \
  /home/advinek22/Desktop/SO2-Projekt-2/SO2P/Random.h \
- /home/advinek22/Desktop/SO2-Projekt-2/SO2P/Vehicle.h
+ /home/advinek22/Desktop/SO2-Projekt-2/SO2P/Vehicle.h \
+ /usr/include/curses.h /usr/include/ncurses_dll.h /usr/include/unctrl.h \
+ /usr/include/curses.h

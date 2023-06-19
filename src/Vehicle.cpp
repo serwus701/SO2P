@@ -1,5 +1,5 @@
-#include "Vehicle.h"
-#include "Random.h"
+#include "../inc/Vehicle.h"
+#include "../inc/Random.h"
 
 
 Vehicle::Vehicle(int idParam) {

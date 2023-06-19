@@ -2,7 +2,7 @@
 // Created by serwu on 27.05.2023.
 //
 
-#include "Controller.h"
+#include "../inc/Controller.h"
 
 Controller::Controller(int numberOfBridgesParam) {
     this->numberOfBridges = numberOfBridgesParam;
@@ -11,7 +11,6 @@ Controller::Controller(int numberOfBridgesParam) {
 }
 
 void Controller::createBridges() {
-    auto random = new Random();
     for (int i = 0; i < this->numberOfBridges; i++) {
         this->bridges.push_back(new Bridge());
         this->bridgesTheads.push_back(std::thread (&Bridge::operate, this->bridges.at(i)));

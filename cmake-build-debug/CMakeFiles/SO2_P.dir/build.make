@@ -156,6 +156,8 @@ SO2_P: CMakeFiles/SO2_P.dir/Vehicle.cpp.o
 SO2_P: CMakeFiles/SO2_P.dir/Controller.cpp.o
 SO2_P: CMakeFiles/SO2_P.dir/Random.cpp.o
 SO2_P: CMakeFiles/SO2_P.dir/build.make
+SO2_P: /usr/lib/x86_64-linux-gnu/libcurses.so
+SO2_P: /usr/lib/x86_64-linux-gnu/libform.so
 SO2_P: CMakeFiles/SO2_P.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SO2_P"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SO2_P.dir/link.txt --verbose=$(VERBOSE)

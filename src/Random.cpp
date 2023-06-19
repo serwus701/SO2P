@@ -4,7 +4,7 @@
 
 #include <cstdlib>
 #include <ctime>
-#include "Random.h"
+#include "../inc/Random.h"
 
 bool Random::getEffectBasedOnChance(int percentChance) {
     srand(time(NULL));

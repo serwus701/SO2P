@@ -34,6 +34,11 @@ public:
     explicit Controller(int);
     void operate();
     void printDistancesMatrix();
+
+    std::vector<Bridge *> getBridges(){
+        return this->bridges;
+    };
+
 };
 
 

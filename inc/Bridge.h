@@ -7,11 +7,10 @@
 #include <mutex>
 #include <thread>
 #include "Random.h"
+#include "Vehicle.h"
 
 #ifndef SO2_P_BRIDGE_H
 #define SO2_P_BRIDGE_H
-
-#include "Vehicle.h"
 
 //posiuada różną ilość pasów wjazdowych i wyjazdowych
 // każdy pas ma atrybut długości czyli tablicew mutexów
@@ -39,6 +38,18 @@ public:
 
     void pushVehicle(Vehicle vehicle);
     int getQueueLen();
+    std::vector<Vehicle> getQueueInside() {
+        return this->queueLeadingInside;
+    }
+
+    std::vector<Vehicle> getQueueOutside() {
+        return this->queueLeadingOutside;
+    }
+
+    std::mutex** getMutexArray(){
+        return this->mutexLinesArray;
+    }
+
 };
 
 

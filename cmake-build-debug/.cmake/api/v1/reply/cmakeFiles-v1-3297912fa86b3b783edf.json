@@ -139,6 +139,41 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
+			"path" : "/opt/clion-2023.1.3/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindCurses.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/clion-2023.1.3/bin/cmake/linux/x64/share/cmake-3.25/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/clion-2023.1.3/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/clion-2023.1.3/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/clion-2023.1.3/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/clion-2023.1.3/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/clion-2023.1.3/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
 			"path" : "/opt/clion-2023.1.3/bin/cmake/linux/x64/share/cmake-3.25/Modules/FindThreads.cmake"
 		},
 		{

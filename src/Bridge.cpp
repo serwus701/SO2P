@@ -2,7 +2,7 @@
 // Created by serwu on 27.05.2023.
 //
 
-#include "Bridge.h"
+#include "../inc/Bridge.h"
 
 Bridge::Bridge() {
     Random * random = new Random();
@@ -40,7 +40,7 @@ void Bridge::openBridge() {
 
 void Bridge::bridgeOpeningChance() {
     Random *random = new Random();
-    if(random->getEffectBasedOnChance(5)){
+    if(random->getEffectBasedOnChance(60)){
         closeBridge();
         while(!this->emptyBridge) {
             bool allUnlocked = true;
@@ -69,9 +69,9 @@ void Bridge::insideLoop() {
     while(true) {
         if(this->isOpen){
             if(this->queueLeadingInside.size() != 0){
-                std::cout << "Test IN" << std::endl;
                 auto vehicleInside = this->queueLeadingInside.at(0);
                 auto vehicleInsideLength = vehicleInside.getLength();
+                this->queueLeadingInside.erase(this->queueLeadingInside.begin());
                 std::vector<int> indexesInside;
                 while(vehicleInsideLength > 0 && this->isOpen) {
                     for(int j = 0; j < this->bridgeLength; j++){
@@ -79,10 +79,15 @@ void Bridge::insideLoop() {
                             vehicleInsideLength--;
                             indexesInside.push_back(j);
                         }
+                        if(vehicleInsideLength == 0) {
+                            break;
+                        }
                     }
                 }
-                std::this_thread::sleep_for(std::chrono::milliseconds(5));
-                for(int j = indexesInside.size() - 1; j >= 0 ; j++){
+                if(vehicleInsideLength == 0) {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                }
+                for(int j = indexesInside.size() - 1; j >= 0 ; j--){
                     this->mutexLinesArray[selectLaneInside][indexesInside[j]].unlock();
                     indexesInside.pop_back();
                 }
@@ -102,6 +107,7 @@ void Bridge::outsideLoop() {
             if (this->queueLeadingOutside.size() != 0) {
                 auto vehicleOutside = this->queueLeadingOutside.at(0);
                 auto vehicleOutsideLength = vehicleOutside.getLength();
+                this->queueLeadingOutside.erase(this->queueLeadingOutside.begin());
                 std::vector<int> indexesOutside;
                 while (vehicleOutsideLength > 0 && this->isOpen) {
                     for (int j = 0; j < this->bridgeLength; j++) {
@@ -109,16 +115,21 @@ void Bridge::outsideLoop() {
                             vehicleOutsideLength--;
                             indexesOutside.push_back(j);
                         }
+                        if(vehicleOutsideLength == 0) {
+                            break;
+                        }
                     }
                 }
-                std::this_thread::sleep_for(std::chrono::milliseconds(5));
-                for (int j = indexesOutside.size() - 1; j >= 0; j++) {
+                if(vehicleOutsideLength == 0) {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                }
+                for (int j = indexesOutside.size() - 1; j >= 0; j--) {
                     this->mutexLinesArray[selectLaneOutside][indexesOutside[j]].unlock();
                     indexesOutside.pop_back();
                 }
                 selectLaneOutside++;
                 if (selectLaneOutside == this->linesLeadingOutside + this->linesLeadingInside) {
-                    selectLaneOutside = 0;
+                    selectLaneOutside = this->linesLeadingInside;
                 }
             }
         }
