@@ -2,10 +2,7 @@
 // Created by serwu on 27.05.2023.
 //
 
-#include "windows.h"
 #include "Controller.h"
-#include "Random.h"
-#include <cmath>
 
 Controller::Controller(int numberOfBridgesParam) {
     this->numberOfBridges = numberOfBridgesParam;
@@ -17,20 +14,18 @@ void Controller::createBridges() {
     auto random = new Random();
     for (int i = 0; i < this->numberOfBridges; i++) {
         this->bridges.push_back(new Bridge());
+        this->bridgesTheads.push_back(std::thread (&Bridge::operate, this->bridges.at(i)));
     }
-}
-
-void Controller::spawnVehicle() {
-    this->vehicles.push_back(new Vehicle());
 }
 
 void Controller::operate() {
     auto random = new Random();
     while (true) {
-
         for (int i = 0; i < numberOfBridges; ++i) {
-            auto newVehicle1 = new Vehicle();
-            auto newVehicle2 = new Vehicle();
+            auto newVehicle1 = new Vehicle(this->newVehicleID);
+            this->newVehicleID++;
+            auto newVehicle2 = new Vehicle(this->newVehicleID);
+            this->newVehicleID++;
             auto bridge = bridges[i];
             int betterBridgePos = findBetterBridge(bridge->getQueueLen(), i);
             vehicles.push_back(newVehicle1);
@@ -44,7 +39,7 @@ void Controller::operate() {
                 bridges[i]->pushVehicle(*newVehicle2);
             }
         }
-        Sleep(random->getTimeControllerToSleep());
+        std::this_thread::sleep_for(std::chrono::milliseconds(random->getTimeControllerToSleep()));
     }
 }
 

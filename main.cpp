@@ -1,8 +1,10 @@
-#include <iostream>
 #include "Controller.h"
 
 int main() {
-    std::cout << "LESSGOOO" << std::endl;
+    int number = 1;
+    Controller *controller = new Controller(number);
+    std::thread mainThread(&Controller::operate, controller);
+    mainThread.join();
 }
 
 //male i duże auta

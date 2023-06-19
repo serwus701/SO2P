@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "E:/Code/Studia/SO2P/Bridge.cpp" "CMakeFiles/SO2_P.dir/Bridge.cpp.obj" "gcc" "CMakeFiles/SO2_P.dir/Bridge.cpp.obj.d"
-  "E:/Code/Studia/SO2P/Controller.cpp" "CMakeFiles/SO2_P.dir/Controller.cpp.obj" "gcc" "CMakeFiles/SO2_P.dir/Controller.cpp.obj.d"
-  "E:/Code/Studia/SO2P/Random.cpp" "CMakeFiles/SO2_P.dir/Random.cpp.obj" "gcc" "CMakeFiles/SO2_P.dir/Random.cpp.obj.d"
-  "E:/Code/Studia/SO2P/Vehicle.cpp" "CMakeFiles/SO2_P.dir/Vehicle.cpp.obj" "gcc" "CMakeFiles/SO2_P.dir/Vehicle.cpp.obj.d"
-  "E:/Code/Studia/SO2P/main.cpp" "CMakeFiles/SO2_P.dir/main.cpp.obj" "gcc" "CMakeFiles/SO2_P.dir/main.cpp.obj.d"
+  "/home/advinek22/Desktop/SO2-Projekt-2/SO2P/Bridge.cpp" "CMakeFiles/SO2_P.dir/Bridge.cpp.o" "gcc" "CMakeFiles/SO2_P.dir/Bridge.cpp.o.d"
+  "/home/advinek22/Desktop/SO2-Projekt-2/SO2P/Controller.cpp" "CMakeFiles/SO2_P.dir/Controller.cpp.o" "gcc" "CMakeFiles/SO2_P.dir/Controller.cpp.o.d"
+  "/home/advinek22/Desktop/SO2-Projekt-2/SO2P/Random.cpp" "CMakeFiles/SO2_P.dir/Random.cpp.o" "gcc" "CMakeFiles/SO2_P.dir/Random.cpp.o.d"
+  "/home/advinek22/Desktop/SO2-Projekt-2/SO2P/Vehicle.cpp" "CMakeFiles/SO2_P.dir/Vehicle.cpp.o" "gcc" "CMakeFiles/SO2_P.dir/Vehicle.cpp.o.d"
+  "/home/advinek22/Desktop/SO2-Projekt-2/SO2P/main.cpp" "CMakeFiles/SO2_P.dir/main.cpp.o" "gcc" "CMakeFiles/SO2_P.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.

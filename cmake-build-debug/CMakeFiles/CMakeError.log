@@ -1,0 +1,45 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-FFAmxi
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_328ad/fast && gmake[1]: Entering directory '/home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-FFAmxi'
+/usr/bin/gmake  -f CMakeFiles/cmTC_328ad.dir/build.make CMakeFiles/cmTC_328ad.dir/build
+gmake[2]: Entering directory '/home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-FFAmxi'
+Building C object CMakeFiles/cmTC_328ad.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_328ad.dir/src.c.o -c /home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-FFAmxi/src.c
+Linking C executable cmTC_328ad
+/opt/clion-2023.1.3/bin/cmake/linux/x64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_328ad.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_328ad.dir/src.c.o -o cmTC_328ad 
+/usr/bin/ld: CMakeFiles/cmTC_328ad.dir/src.c.o: in function `main':
+src.c:(.text+0x2f): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x3b): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x47): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x58): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/cmTC_328ad.dir/build.make:99: cmTC_328ad] Error 1
+gmake[2]: Leaving directory '/home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-FFAmxi'
+gmake[1]: *** [Makefile:127: cmTC_328ad/fast] Error 2
+gmake[1]: Leaving directory '/home/advinek22/Desktop/SO2-Projekt-2/SO2P/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-FFAmxi'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+

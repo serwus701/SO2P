@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 #include <mutex>
+#include <thread>
+#include "Random.h"
 
 #ifndef SO2_P_BRIDGE_H
 #define SO2_P_BRIDGE_H
@@ -18,21 +20,24 @@
 class Bridge {
 private:
     bool isOpen;
+    bool emptyBridge;
     int bridgeLength;
     int linesLeadingInside;
     int linesLeadingOutside;
-    std::vector<int> queueLeadingInside{0};
-    std::vector<int> queueLeadingOutside{0};
+    std::vector<Vehicle> queueLeadingInside;
+    std::vector<Vehicle> queueLeadingOutside;
     std::mutex** mutexLinesArray;
-
     void closeBridge();
     void openBridge();
+    void bridgeOpeningChance();
+    void insideLoop();
+    void outsideLoop();
 public:
     Bridge();
     ~Bridge();
     void operate();
 
-    void pushVehicle(Vehicle);
+    void pushVehicle(Vehicle vehicle);
     int getQueueLen();
 };
 

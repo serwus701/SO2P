@@ -17,7 +17,7 @@ bool Random::getEffectBasedOnChance(int percentChance) {
 int Random::getRandomBridgeLen() {
     srand(time(NULL));
 
-    return rand() % 30 + 20;
+    return rand() % 11 + 10;
 }
 
 int Random::getRandomLanesNum() {

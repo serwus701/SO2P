@@ -9,12 +9,17 @@
 
 class Vehicle {
 private:
+    int id;
     bool isPrivileged;
     bool targetToCity;
     int length;
 
 public:
-    Vehicle();
+    Vehicle(int id);
+    int getId();
+    bool getIsPrivileged();
+    bool getTargetToCity();
+    int getLength();
 };
 
 

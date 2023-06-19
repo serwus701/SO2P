@@ -9,11 +9,9 @@
 class Random {
 public:
     bool getEffectBasedOnChance(int percentChance);
-
     int getRandomBridgeLen();
     int getRandomLanesNum();
     int getRandomLength();
-
     int getTimeControllerToSleep();
 };
 
